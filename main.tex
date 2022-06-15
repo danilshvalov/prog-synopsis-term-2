@@ -1,0 +1,167 @@
+\documentclass[a4paper,12pt,oneside]{extbook}
+\usepackage[english,russian]{babel}
+\usepackage{fontspec}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{wrapfig}
+\usepackage{xcolor,soul,lipsum}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{enumitem} % no item sep in list
+\usepackage[explicit]{titlesec}
+\usepackage{amssymb}
+\usepackage{titletoc}
+\usepackage{tocvsec2}
+\usepackage{tocloft}
+\usepackage[b]{esvect}
+\usepackage{mdframed}
+\usepackage{textcomp}
+\usepackage{multicol}
+\usepackage[%
+    left=0.8in,%
+    right=0.8in,%
+    top=0.8in,%
+    bottom=1in,%
+]{geometry}%
+
+\DeclareMathOperator{\sign}{sign}
+
+\newmdenv[
+    linewidth=2pt,
+    align=center,
+    topline=false,
+    bottomline=false,
+    rightline=false,
+    skipabove=\topsep,
+    skipbelow=\topsep,
+]{siderules}
+
+
+\pagestyle{plain}
+\setmainfont{PT Serif}
+
+\renewcommand{\thesection}{\arabic{section}}
+
+\titleformat{\section}
+{\Large}{\textbf{\thesection.}}{0.5em}{\textbf{#1}}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+
+\graphicspath{ {./images/} }
+
+
+\title{
+    Конспекты по программированию \\
+    \vspace{2cm} 2 семестр \\
+    \vspace{2cm} ИКТ \\
+    2021 — 2022
+    \vfill
+}
+\author{
+    Автор: \\
+    Даниил Швалов
+}
+\date{}
+
+\begin{document}
+
+\begin{titlepage}
+    \pagestyle{empty}
+    \cleardoublepage
+    \maketitle
+    \thispagestyle{empty}
+\end{titlepage}
+
+\setcounter{page}{2}
+{
+    \setcounter{tocdepth}{4}
+    \hypersetup{linkcolor=black}
+    \tableofcontents
+}
+
+\newpage
+
+\section{Процесс создания ПО}%
+\label{sec:Процесс создания ПО}
+
+\textit{Процесс создания ПО} – совокупность мероприятий, целью которых является создание или модернизация ПО.
+
+\begin{enumerate}
+    \item Анализ предметной области (постановка задачи)
+    \item Разработка проекта системы
+          \begin{enumerate}
+              \item Создание модели, отражающей основные функциональные требования, предъявляемые к программе
+              \item Выбор метода решения (построение мат. модели)
+              \item Разработка алгоритма – последовательности действий по решению задачи
+          \end{enumerate}
+    \item Реализация программы на языке программирования (кодирование)
+    \item Анализ полученных результатов (тестирование)
+    \item Внедрение и сопровождение
+\end{enumerate}
+
+Этап анализа состоит в исследовании системных требований и проблемы. Различают:
+\begin{itemize}
+    \item анализ требований — исследование требований к системе;
+    \item объектный анализ — исследование объектов предметной области.
+\end{itemize}
+
+\section{Жизненный цикл программного продукта}%
+\label{sec:Жизненный цикл программного продукта}
+
+\textit{Жизненный цикл} - это непрерывный процесс, который начинается с момента принятия решения о необходимости его создания и заканчивается в момент его полного изъятия из эксплуатации. Он базируется на 3-х группах процессов:
+\begin{enumerate}
+    \item
+          \textbf{Основные процессы} — реализуются под управлением основных сторон (заказчик, поставщик, разработчик, оператор и персонал сопровождения), вовлеченных в жизненный цикл программных средств.
+          \newline
+          \textbf{Примеры}: заказ, поставка, разработка, эксплуатация, сопровождение.
+    \item
+          \textbf{Вспомогательные процессы} — обеспечивают выполнение основных процессов.
+          \newline
+          \textbf{Примеры}: документирование, управление конфигурацией, обеспечение качества, верификация, аттестация, совместный анализ, аудит, решение проблем.
+    \item
+          \textbf{Организационные процессы} — применяются для создания, реализации и постоянного совершенствования основной структуры, охватывающей взаимосвязанные процессы жизненного цикла и персонал.
+          \newline
+          \textbf{Примеры}: управление, создание инфраструктуры, усовершенствование, обучение.
+\end{enumerate}
+
+\textbf{Стадии жизненного цикла}: замысел \(\longrightarrow\) разработка \(\longrightarrow\) производство \(\longrightarrow\) применение \(\longrightarrow\) поддержка \(\longrightarrow\) списание.
+
+\section{Каскадная модель}%
+\label{sec:Каскадная модель}
+
+\textbf{Этапы каскадной модели}:
+\begin{enumerate}
+    \item определение требований;
+    \item проектирование;
+    \item кодирование, тестирование модулей;
+    \item интеграция, тестирования;
+    \item эксплуатация, сопровождение.
+\end{enumerate}
+
+\textbf{Характеристика модели}:
+\begin{itemize}
+    \item фиксированный набор стадий;
+    \item каждая стадия — законченный результат;
+    \item стадия начинается, когда закончилась предыдущая.
+\end{itemize}
+
+\textbf{Недостатком} модели является ее «негибкость»:
+\begin{itemize}
+    \item фаза должна быть закончена, прежде чем приступить к следующей;
+    \item набор фаз фиксирован;
+    \item тяжело реагировать на изменение требований.
+\end{itemize}
+
+Каскадную модель \textbf{рекомендуется использовать} там, где требования заранее известны и неизменны.
+
+
+\end{document}
