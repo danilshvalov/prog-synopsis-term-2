@@ -428,4 +428,49 @@ Python имеет встроенную поддержку SQLite: достато
 \textbf{Пример работы с SQLite}:
 \inputminted{python}{./examples/sqlite_conn.py}
 
+\section{ORM}%
+\label{sec:ORM}
+
+\textbf{ORM} (Object Relational Mapping) — метод программирования для преобразования данных между несовместимыми системами типов в ОО языках программирования. ORM построен поверх языка SQL.
+
+Основной целью API ORM является облегчение связывания пользовательских классов Python с таблицами БД и наоборот. Так, например, изменения в состояниях объектов и строк синхронно сопоставляются друг с другом, поскольку запросы к БД выражаются в терминах пользовательских классов. Таким образом каждый класс отображается на таблицу в БД.
+
+\textbf{Основные подходы к реализации ORM}:
+\begin{itemize}
+    \item \textbf{Active record} — отображение объекта данных на строку БД.
+    \item \textbf{Data mapper} — полное отделение представления данных в программе от представления в БД.
+\end{itemize}
+
+\textbf{ORM библиотеки}:
+\begin{itemize}
+    \item \textbf{peewee} — легкая, быстрая и гибка ORM, которая поддерживает SQLite, MySQL и PostgreSQL. В библиотеке применяется подход \textbf{Active record}.
+    \item \textbf{SQLAlchemy} — поддерживает SQLite, MySQL, PostgreSQL. В библиотеке применяется подход \textbf{Data mapper}.
+\end{itemize}
+
+\section{Peewee}%
+\label{sec:Peewee}
+
+peewee предназначен для работы с реализацией DBAPI, созданной для конкретной базы данных.
+
+\textbf{Пример работы с peewee}:
+\inputminted{python}{./examples/peewee_conn.py}
+
+\section{SQLAlchemy}%
+\label{sec:SQLAlchemy}
+
+SQLAlchemy предназначен для работы с реализацией DBAPI, созданной для конкретной БД.
+
+\textbf{Особенности}:
+\begin{itemize}
+    \item использует систему диалектов для связи с различными типами реализаций DBAPI и БД;
+    \item все диалекты требуют, чтобы был установлен соответствующий драйвер DBAPI;
+    \item некоторые диалекты включены по умолчанию: FireBird, MS SQL Server, MySQL, Oracle, PostgreSQL, SQLite, Sybase.
+\end{itemize}
+
+\textbf{Пример работы с SQLAlchemy(Core)}:
+\inputminted{python}{./examples/sqlalchemy_conn.py}
+
+\textbf{Пример работы с SQLAlchemy(ORM)}:
+\inputminted{python}{./examples/sqlalchemy_orm.py}
+
 \end{document}
